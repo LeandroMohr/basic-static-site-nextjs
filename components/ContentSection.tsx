@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material';
 import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ReactNode } from 'react';

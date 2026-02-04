@@ -1,4 +1,4 @@
-import { Box, Container, IconButton, Stack, Typography } from '@mui/material'
+import { Box, Container, IconButton, Stack, Typography } from '@mui/material';
 import type { TypographyProps } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';

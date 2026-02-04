@@ -1,4 +1,4 @@
-import { Container, Stack, Typography } from '@mui/material'
+import { Container, Stack, Typography } from '@mui/material';
 import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ContentSection from '../../../components/ContentSection';
