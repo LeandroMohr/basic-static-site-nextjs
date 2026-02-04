@@ -8,7 +8,8 @@ import {
   Grid,
   Stack,
   Typography,
-  TypographyProps
+  TypographyProps,
+  CardActionAreaProps
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
@@ -65,7 +66,7 @@ const QuickNavCard = styled(Card)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[200]}`
 }));
 
-const QuickNavCardLink = styled(CardActionArea)(({ theme }) => ({
+const QuickNavCardLink = styled(CardActionArea)<CardActionAreaProps>(({ theme }) => ({
   height: '100%',
   alignItems: 'stretch',
   textAlign: 'left',
@@ -136,7 +137,7 @@ export default function HomePage() {
           ].map((item) => (
             <Grid item xs={12} md={3} key={item.title}>
               <QuickNavCard>
-                <QuickNavCardLink component={Link} href={item.href}>
+                <QuickNavCardLink LinkComponent={Link} href={item.href}>
                   <CardContent>
                     <QuickNavCardTitle variant="h6">
                       {item.title}
