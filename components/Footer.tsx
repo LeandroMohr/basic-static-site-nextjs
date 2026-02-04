@@ -1,4 +1,4 @@
-import { Box, Container, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Container, IconButton, Stack, Typography, TypographyProps } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -32,11 +32,11 @@ const FooterWrapper = styled(Box)(({ theme }) => ({
   paddingBlock: theme.spacing(4)
 }));
 
-const FooterLink = styled(Typography)({
+const FooterLink = styled(Typography)<TypographyProps>({
   textDecoration: 'none'
 });
 
-const FooterBottom = styled(Typography)(({ theme }) => ({
+const FooterBottom = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginTop: theme.spacing(3)
 }));
 

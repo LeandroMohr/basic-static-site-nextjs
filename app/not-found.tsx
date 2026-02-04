@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 
@@ -6,11 +6,11 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2)
 }));
 
-const PageDescription = styled(Typography)(({ theme }) => ({
+const PageDescription = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2)
 }));
 

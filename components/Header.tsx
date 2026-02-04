@@ -14,7 +14,8 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography
+  Typography,
+  TypographyProps
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -39,7 +40,7 @@ const DrawerContent = styled(Box)({
   textAlign: 'center'
 });
 
-const DrawerTitle = styled(Typography)(({ theme }) => ({
+const DrawerTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBlock: theme.spacing(2)
 }));
 
@@ -52,7 +53,7 @@ const HeaderToolbar = styled(Toolbar)({
   justifyContent: 'space-between'
 });
 
-const LogoText = styled(Typography)(({ theme }) => ({
+const LogoText = styled(Typography)<TypographyProps>(({ theme }) => ({
   flexGrow: 1,
   fontWeight: 700
 }));

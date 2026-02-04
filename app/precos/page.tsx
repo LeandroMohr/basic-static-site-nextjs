@@ -1,4 +1,11 @@
-import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+  TypographyProps
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const metadata = {
@@ -29,7 +36,7 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(4),
   fontWeight: 700
 }));
@@ -38,11 +45,11 @@ const PlanCard = styled(Card)({
   height: '100%'
 });
 
-const PlanTitle = styled(Typography)(({ theme }) => ({
+const PlanTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(1)
 }));
 
-const PlanPrice = styled(Typography)(({ theme }) => ({
+const PlanPrice = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2)
 }));
 

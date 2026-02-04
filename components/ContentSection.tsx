@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ReactNode } from 'react';
 
@@ -11,7 +11,7 @@ const SectionWrapper = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(4)
 }));
 
-const SectionTitle = styled(Typography)(({ theme }) => ({
+const SectionTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2)
 }));
 
