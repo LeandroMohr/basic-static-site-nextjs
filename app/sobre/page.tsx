@@ -16,21 +16,20 @@ export default function SobrePage() {
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <ContentSection title="Nossa missão">
-            Entregar experiências digitais institucionais que conectam marcas ao público certo,
-            com foco em performance, acessibilidade e clareza das informações.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
+            libero. Sed cursus ante dapibus diam.
           </ContentSection>
         </Grid>
         <Grid item xs={12} md={6}>
           <ContentSection title="Nossa visão">
-            Ser a plataforma base para equipes que precisam lançar sites institucionais rápidos,
-            com SEO consistente e integrações de BI prontas para evoluir.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisi. Nulla quis sem at
+            nibh elementum imperdiet.
           </ContentSection>
         </Grid>
         <Grid item xs={12}>
           <ContentSection title="O que entregamos">
-            Uma arquitetura modular com páginas essenciais, blog para conteúdos estratégicos e um
-            layout responsivo adaptado para desktop, tablet e mobile. Tudo pronto para campanhas e
-            análises de dados.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis ipsum. Praesent
+            mauris. Fusce nec tellus sed augue semper porta.
           </ContentSection>
         </Grid>
       </Grid>

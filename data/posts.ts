@@ -10,25 +10,25 @@ export const blogPosts: BlogPost[] = [
     slug: 'tendencias-digital-2024',
     title: 'Tendências digitais para 2024',
     summary:
-      'Uma visão prática sobre SEO, performance e conteúdo institucional que geram relevância.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
     content:
-      'Planeje o conteúdo com base em intenção de busca, organize a arquitetura das páginas e garanta uma experiência consistente em mobile. Combine SEO técnico, performance e acessibilidade para ampliar o alcance orgânico e fortalecer a marca.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.'
   },
   {
     slug: 'estrategia-conteudo',
     title: 'Estratégia de conteúdo para marcas institucionais',
     summary:
-      'Como estruturar narrativas claras que apoiam vendas e posicionamento digital.',
+      'Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.',
     content:
-      'Crie um calendário editorial focado em temas estratégicos, alinhando produto, serviço e prova social. Use linguagem simples, seções objetivas e chamadas de ação para guiar o visitante até a conversão.'
+      'Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.'
   },
   {
     slug: 'bi-metricas',
     title: 'Como BI melhora a tomada de decisão',
     summary:
-      'Dashboards e métricas para transformar visitas em decisões estratégicas.',
+      'Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam.',
     content:
-      'Conecte métricas de tráfego, engajamento e conversão em um painel único. Dessa forma, a equipe consegue avaliar campanhas, ajustar a jornada e priorizar conteúdos que geram resultado.'
+      'Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.'
   }
 ];
 

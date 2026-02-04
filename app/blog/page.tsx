@@ -1,4 +1,4 @@
-import { Card, CardContent, CardActions, Container, Grid, Stack, Typography, Button } from '@mui/material';
+import { Card, CardContent, CardActions, Container, Grid, Typography, Button } from '@mui/material';
 import Link from 'next/link';
 import { blogPosts } from '../../data/posts';
 
@@ -14,14 +14,6 @@ export default function BlogPage() {
       <Typography variant="h3" component="h1" sx={{ mb: 4, fontWeight: 700 }}>
         Blog
       </Typography>
-      <Stack spacing={1} sx={{ mb: 3 }}>
-        <Typography variant="body1" color="text.secondary">
-          Insights, tendências e boas práticas para presença digital institucional.
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque volutpat mattis eros.
-        </Typography>
-      </Stack>
       <Grid container spacing={3}>
         {blogPosts.map((post) => (
           <Grid item xs={12} md={4} key={post.slug}>

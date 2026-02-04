@@ -1,24 +1,18 @@
-import { Button, Container, Stack, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import Link from 'next/link';
 
 export default function NotFound() {
   return (
     <Container maxWidth="md" sx={{ py: 6 }}>
       <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
-        Ops! Essa página fugiu para o café ☕
+        Página não encontrada
       </Typography>
       <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-        Procuramos nos arquivos, no backlog e até na sala do café, mas não achamos essa URL.
-        Talvez ela ainda esteja em planejamento estratégico.
+        O conteúdo solicitado não foi localizado. Volte para a página inicial.
       </Typography>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-        <Button component={Link} href="/" variant="contained">
-          Voltar para a Home
-        </Button>
-        <Button component={Link} href="/blog" variant="outlined">
-          Explorar o Blog
-        </Button>
-      </Stack>
+      <Typography component={Link} href="/" color="primary">
+        Ir para a Home
+      </Typography>
     </Container>
   );
 }
