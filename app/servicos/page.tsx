@@ -51,8 +51,6 @@ const PageSubtitle = styled(Typography)<TypographyProps>(({ theme }) => ({
 
 const ServiceCard = styled(Card)(({ theme }) => ({
   height: '100%',
-  textDecoration: 'none',
-  display: 'block',
   border: `1px solid ${theme.palette.grey[200]}`
 }));
 
@@ -82,19 +80,18 @@ export default function ServicosPage() {
       <Grid container spacing={3}>
         {serviceCards.map((card) => (
           <Grid item xs={12} md={4} key={card.title}>
-            <ServiceCard
-              component={Link}
-              href={card.href}
-            >
-              <CardContent>
-                <ServiceCardTitle variant="h5">
-                  {card.title}
-                </ServiceCardTitle>
-                <Typography variant="body2" color="text.secondary">
-                  {card.description}
-                </Typography>
-              </CardContent>
-            </ServiceCard>
+            <Link href={card.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+              <ServiceCard>
+                <CardContent>
+                  <ServiceCardTitle variant="h5">
+                    {card.title}
+                  </ServiceCardTitle>
+                  <Typography variant="body2" color="text.secondary">
+                    {card.description}
+                  </Typography>
+                </CardContent>
+              </ServiceCard>
+            </Link>
           </Grid>
         ))}
       </Grid>

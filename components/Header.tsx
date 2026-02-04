@@ -14,9 +14,9 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
-  TypographyProps
+  Typography
 } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
@@ -102,9 +102,11 @@ export default function Header() {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <DrawerListButton component={Link} href={item.href}>
-              <ListItemText primary={item.label} />
-            </DrawerListButton>
+            <Link href={item.href} style={{ textDecoration: 'none', width: '100%' }}>
+              <DrawerListButton>
+                <ListItemText primary={item.label} />
+              </DrawerListButton>
+            </Link>
           </ListItem>
         ))}
         <ListItem disablePadding>
@@ -114,9 +116,11 @@ export default function Header() {
         </ListItem>
         {submenuItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <DrawerListButton component={Link} href={item.href}>
-              <ListItemText primary={item.label} />
-            </DrawerListButton>
+            <Link href={item.href} style={{ textDecoration: 'none', width: '100%' }}>
+              <DrawerListButton>
+                <ListItemText primary={item.label} />
+              </DrawerListButton>
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -134,9 +138,11 @@ export default function Header() {
           </LogoText>
           <DesktopNav>
             {navItems.map((item) => (
-              <Button key={item.label} color="inherit" component={Link} href={item.href}>
-                {item.label}
-              </Button>
+              <Link key={item.label} href={item.href} style={{ textDecoration: 'none' }}>
+                <Button color="inherit">
+                  {item.label}
+                </Button>
+              </Link>
             ))}
             <Button
               color="inherit"
@@ -154,14 +160,13 @@ export default function Header() {
               MenuListProps={{ onMouseLeave: handleSubmenuClose }}
             >
               {submenuItems.map((item) => (
-                <MenuItem
-                  key={item.label}
-                  component={Link}
-                  href={item.href}
-                  onClick={handleSubmenuClose}
-                >
-                  {item.label}
-                </MenuItem>
+                <Link key={item.label} href={item.href} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <MenuItem
+                    onClick={handleSubmenuClose}
+                  >
+                    {item.label}
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </DesktopNav>

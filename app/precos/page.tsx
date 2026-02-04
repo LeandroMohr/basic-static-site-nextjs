@@ -3,9 +3,9 @@ import {
   CardContent,
   Container,
   Grid,
-  Typography,
-  TypographyProps
+  Typography
 } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const metadata = {

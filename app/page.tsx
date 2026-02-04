@@ -7,10 +7,9 @@ import {
   Container,
   Grid,
   Stack,
-  Typography,
-  TypographyProps,
-  CardActionAreaProps
+  Typography
 } from '@mui/material';
+import type { TypographyProps, CardActionAreaProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import ContentSection from '../components/ContentSection';
@@ -138,7 +137,7 @@ export default function HomePage() {
             <Grid item xs={12} md={3} key={item.title}>
               <QuickNavCard>
                 <Link href={item.href} style={{ textDecoration: 'none' }}>
-                  <QuickNavCardLink component="div">
+                  <QuickNavCardLink>
                     <CardContent>
                       <QuickNavCardTitle variant="h6">
                         {item.title}

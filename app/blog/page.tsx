@@ -4,13 +4,31 @@ import {
   CardActions,
   Container,
   Grid,
-  Typography,
-  TypographyProps,
-  Button
+  Typography
 } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Link from 'next/link';
-import { blogPosts } from '../../data/posts';
+
+const blogPosts = [
+  {
+    slug: 'tendencias-digital-2024',
+    title: 'Tendências digitais para 2024',
+    summary:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+  },
+  {
+    slug: 'estrategia-conteudo',
+    title: 'Estratégia de conteúdo para marcas institucionais',
+    summary:
+      'Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.',
+  },
+  {
+    slug: 'bi-metricas',
+    title: 'Como BI melhora a tomada de decisão',
+    summary:
+      'Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam.',
+  }
+];
 
 export const metadata = {
   title: 'Blog',
@@ -60,9 +78,11 @@ export default function BlogPage() {
                 </Typography>
               </PostCardContent>
               <CardActions>
-                <Button component={Link} href={`/blog/${post.slug}`} size="small">
-                  Ler artigo
-                </Button>
+                <Typography variant="button">
+                  <a href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Ler artigo
+                  </a>
+                </Typography>
               </CardActions>
             </PostCard>
           </Grid>
