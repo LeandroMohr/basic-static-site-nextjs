@@ -50,7 +50,7 @@ export default function ServicosPage() {
         {serviceCards.map((card) => (
           <Grid item xs={12} md={4} key={card.title}>
             <Link href={card.href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-              <Card sx={{ height: '100%', border: '1px solid', borderColor: 'grey.300' }}>
+              <Card sx={{ height: '100%', border: '1px solid', borderColor: 'grey.200' }}>
                 <CardContent>
                   <Typography variant="h5" sx={{ marginBottom: 1, color: 'text.primary' }}>
                     {card.title}

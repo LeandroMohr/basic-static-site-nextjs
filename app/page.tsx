@@ -90,7 +90,7 @@ export default function HomePage() {
                 textDecoration: 'none',
                 display: 'block',
                 border: '1px solid',
-                borderColor: 'grey.300'
+                borderColor: 'grey.200'
               }}>
                 <Link href={item.href} style={{ textDecoration: 'none' }}>
                   <CardActionArea sx={{
