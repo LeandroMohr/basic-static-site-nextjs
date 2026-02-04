@@ -43,6 +43,6 @@ export default function SobrePage() {
           </ContentSection>
         </Grid>
       </Grid>
-    </Container>
+    </PageContainer>
   );
 }
