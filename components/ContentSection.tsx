@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { ReactNode } from 'react';
 
 type ContentSectionProps = {
@@ -6,15 +7,23 @@ type ContentSectionProps = {
   children: ReactNode;
 };
 
+const SectionWrapper = styled(Box)(({ theme }) => ({
+  marginBottom: theme.spacing(4)
+}));
+
+const SectionTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(2)
+}));
+
 export default function ContentSection({ title, children }: ContentSectionProps) {
   return (
-    <Box sx={{ mb: 4 }}>
-      <Typography variant="h4" sx={{ mb: 2 }}>
+    <SectionWrapper>
+      <SectionTitle variant="h4">
         {title}
-      </Typography>
+      </SectionTitle>
       <Typography variant="body1" color="text.secondary">
         {children}
       </Typography>
-    </Box>
+    </SectionWrapper>
   );
 }

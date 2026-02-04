@@ -1,9 +1,31 @@
 'use client';
 
 import { Box, Button, Paper, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'cookie-consent';
+
+const BannerPaper = styled(Paper)(({ theme }) => ({
+  position: 'fixed',
+  bottom: theme.spacing(2),
+  left: theme.spacing(2),
+  right: theme.spacing(2),
+  padding: theme.spacing(3),
+  zIndex: 1300
+}));
+
+const BannerContent = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(2),
+  alignItems: 'flex-start',
+  justifyContent: 'space-between',
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  }
+}));
 
 export default function CookieBanner() {
   const [accepted, setAccepted] = useState(true);
@@ -23,26 +45,8 @@ export default function CookieBanner() {
   }
 
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        position: 'fixed',
-        bottom: 16,
-        left: 16,
-        right: 16,
-        p: 3,
-        zIndex: 1300
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          gap: 2,
-          alignItems: { xs: 'flex-start', md: 'center' },
-          justifyContent: 'space-between'
-        }}
-      >
+    <BannerPaper elevation={3}>
+      <BannerContent>
         <Typography variant="body2">
           Utilizamos cookies e tecnologias similares para analisar métricas e melhorar a
           experiência do usuário, em conformidade com a LGPD.
@@ -50,7 +54,7 @@ export default function CookieBanner() {
         <Button variant="contained" onClick={handleAccept}>
           Aceitar
         </Button>
-      </Box>
-    </Paper>
+      </BannerContent>
+    </BannerPaper>
   );
 }

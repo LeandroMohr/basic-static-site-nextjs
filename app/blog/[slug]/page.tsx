@@ -1,4 +1,5 @@
 import { Container, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { blogPosts, getPostBySlug } from '../../../data/posts';
 import { notFound } from 'next/navigation';
 
@@ -27,6 +28,15 @@ export const generateMetadata = ({ params }: BlogPostPageProps) => {
 export const generateStaticParams = () =>
   blogPosts.map((post) => ({ slug: post.slug }));
 
+const PageContainer = styled(Container)(({ theme }) => ({
+  paddingBlock: theme.spacing(6)
+}));
+
+const PageTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(3),
+  fontWeight: 700
+}));
+
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getPostBySlug(params.slug);
 
@@ -35,13 +45,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 6 }}>
-      <Typography variant="h3" component="h1" sx={{ mb: 3, fontWeight: 700 }}>
+    <PageContainer maxWidth="md">
+      <PageTitle variant="h3" component="h1">
         {post.title}
-      </Typography>
+      </PageTitle>
       <Typography variant="body1" color="text.secondary">
         {post.content}
       </Typography>
-    </Container>
+    </PageContainer>
   );
 }

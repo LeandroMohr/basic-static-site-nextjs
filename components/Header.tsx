@@ -16,6 +16,7 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
@@ -28,10 +29,48 @@ const navItems = [
 ];
 
 const submenuItems = [
-  { label: 'Consultoria', href: '/sobre' },
-  { label: 'Implementação', href: '/precos' },
-  { label: 'Suporte', href: '/sobre' }
+  { label: 'Visão geral', href: '/servicos' },
+  { label: 'Consultoria', href: '/servicos/consultoria' },
+  { label: 'Implementação', href: '/servicos/implementacao' },
+  { label: 'Suporte', href: '/servicos/suporte' }
 ];
+
+const DrawerContent = styled(Box)({
+  textAlign: 'center'
+});
+
+const DrawerTitle = styled(Typography)(({ theme }) => ({
+  marginBlock: theme.spacing(2)
+}));
+
+const DrawerListButton = styled(ListItemButton)({
+  textAlign: 'center'
+});
+
+const HeaderToolbar = styled(Toolbar)({
+  display: 'flex',
+  justifyContent: 'space-between'
+});
+
+const LogoText = styled(Typography)(({ theme }) => ({
+  flexGrow: 1,
+  fontWeight: 700
+}));
+
+const DesktopNav = styled(Box)(({ theme }) => ({
+  display: 'none',
+  gap: theme.spacing(2),
+  alignItems: 'center',
+  [theme.breakpoints.up('md')]: {
+    display: 'flex'
+  }
+}));
+
+const MobileMenuButton = styled(IconButton)(({ theme }) => ({
+  [theme.breakpoints.up('md')]: {
+    display: 'none'
+  }
+}));
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,46 +92,46 @@ export default function Header() {
   };
 
   const drawer = (
-    <Box onClick={toggleDrawer} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <DrawerContent onClick={toggleDrawer}>
+      <DrawerTitle variant="h6">
         <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           Institucional
         </Link>
-      </Typography>
+      </DrawerTitle>
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton component={Link} href={item.href} sx={{ textAlign: 'center' }}>
+            <DrawerListButton component={Link} href={item.href}>
               <ListItemText primary={item.label} />
-            </ListItemButton>
+            </DrawerListButton>
           </ListItem>
         ))}
         <ListItem disablePadding>
-          <ListItemButton sx={{ textAlign: 'center' }}>
+          <DrawerListButton>
             <ListItemText primary="Serviços" />
-          </ListItemButton>
+          </DrawerListButton>
         </ListItem>
         {submenuItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton component={Link} href={item.href} sx={{ textAlign: 'center' }}>
+            <DrawerListButton component={Link} href={item.href}>
               <ListItemText primary={item.label} />
-            </ListItemButton>
+            </DrawerListButton>
           </ListItem>
         ))}
       </List>
-    </Box>
+    </DrawerContent>
   );
 
   return (
     <AppBar position="sticky" color="default" elevation={1}>
       <Container maxWidth="lg">
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
+        <HeaderToolbar>
+          <LogoText variant="h6" component="div">
             <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               Logo Cliente
             </Link>
-          </Typography>
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
+          </LogoText>
+          <DesktopNav>
             {navItems.map((item) => (
               <Button key={item.label} color="inherit" component={Link} href={item.href}>
                 {item.label}
@@ -124,17 +163,16 @@ export default function Header() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <IconButton
+          </DesktopNav>
+          <MobileMenuButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={toggleDrawer}
-            sx={{ display: { md: 'none' } }}
           >
             <MenuIcon />
-          </IconButton>
-        </Toolbar>
+          </MobileMenuButton>
+        </HeaderToolbar>
       </Container>
       <Drawer anchor="right" open={mobileOpen} onClose={toggleDrawer}>
         {drawer}
