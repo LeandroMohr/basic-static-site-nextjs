@@ -1,6 +1,6 @@
-import { Container, Typography, TypographyProps } from '@mui/material';
+import { Container, Typography } from '@mui/material'
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Link from 'next/link';
 
 const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
@@ -23,11 +23,11 @@ export default function NotFound() {
       <PageDescription variant="body1" color="text.secondary">
         O conteúdo solicitado não foi localizado. Volte para a página inicial.
       </PageDescription>
-      <Link href="/" style={{ textDecoration: 'none' }}>
-        <Typography color="primary">
+      <Typography color="primary">
+        <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           Ir para a Home
-        </Typography>
-      </Link>
+        </a>
+      </Typography>
     </PageContainer>
   );
 }

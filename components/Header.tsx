@@ -14,9 +14,9 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
-  TypographyProps
+  Typography
 } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';

@@ -1,4 +1,5 @@
-import { Container, Typography, TypographyProps } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { blogPosts, getPostBySlug } from '../../../data/posts';
 import { notFound } from 'next/navigation';
@@ -9,7 +10,7 @@ type BlogPostPageProps = {
   };
 };
 
-export const generateMetadata = ({ params }: BlogPostPageProps) => {
+export const generateMetadata = async ({ params }: BlogPostPageProps) => {
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -25,8 +26,9 @@ export const generateMetadata = ({ params }: BlogPostPageProps) => {
   };
 };
 
-export const generateStaticParams = () =>
-  blogPosts.map((post) => ({ slug: post.slug }));
+export const generateStaticParams = async () => {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+};
 
 const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)

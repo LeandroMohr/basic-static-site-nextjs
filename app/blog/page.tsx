@@ -5,11 +5,10 @@ import {
   Container,
   Grid,
   Typography,
-  TypographyProps,
   Button
 } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Link from 'next/link';
 import { blogPosts } from '../../data/posts';
 
 export const metadata = {
@@ -60,11 +59,9 @@ export default function BlogPage() {
                 </Typography>
               </PostCardContent>
               <CardActions>
-                <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
-                  <Button size="small">
-                    Ler artigo
-                  </Button>
-                </Link>
+                <Button href={`/blog/${post.slug}`} size="small">
+                  Ler artigo
+                </Button>
               </CardActions>
             </PostCard>
           </Grid>
