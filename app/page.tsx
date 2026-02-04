@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  CardActionArea,
   CardContent,
   Container,
   Grid,
@@ -62,6 +63,13 @@ const QuickNavCard = styled(Card)(({ theme }) => ({
   textDecoration: 'none',
   display: 'block',
   border: `1px solid ${theme.palette.grey[200]}`
+}));
+
+const QuickNavCardLink = styled(CardActionArea)(({ theme }) => ({
+  height: '100%',
+  alignItems: 'stretch',
+  textAlign: 'left',
+  padding: theme.spacing(1)
 }));
 
 const QuickNavCardTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
@@ -127,18 +135,17 @@ export default function HomePage() {
             }
           ].map((item) => (
             <Grid item xs={12} md={3} key={item.title}>
-              <QuickNavCard
-                component={Link}
-                href={item.href}
-              >
-                <CardContent>
-                  <QuickNavCardTitle variant="h6">
-                    {item.title}
-                  </QuickNavCardTitle>
-                  <Typography variant="body2" color="text.secondary">
-                    {item.description}
-                  </Typography>
-                </CardContent>
+              <QuickNavCard>
+                <QuickNavCardLink component={Link} href={item.href}>
+                  <CardContent>
+                    <QuickNavCardTitle variant="h6">
+                      {item.title}
+                    </QuickNavCardTitle>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </CardContent>
+                </QuickNavCardLink>
               </QuickNavCard>
             </Grid>
           ))}
