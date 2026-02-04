@@ -26,15 +26,7 @@ const sitemapLinks = [
   { label: 'Blog', href: '/blog' }
 ];
 
-const FooterWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.grey[100],
-  marginTop: theme.spacing(8),
-  paddingBlock: theme.spacing(4)
-}));
-
-const FooterLink = styled(Typography)<TypographyProps>({
-  textDecoration: 'none'
-});
+const FooterText = styled(Typography)<TypographyProps>({});
 
 const FooterBottom = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginTop: theme.spacing(3)
@@ -42,7 +34,14 @@ const FooterBottom = styled(Typography)<TypographyProps>(({ theme }) => ({
 
 export default function Footer() {
   return (
-    <FooterWrapper component="footer">
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: (theme) => theme.palette.grey[100],
+        marginTop: (theme) => theme.spacing(8),
+        paddingBlock: (theme) => theme.spacing(4)
+      }}
+    >
       <Container maxWidth="lg">
         <Stack
           direction={{ xs: 'column', md: 'row' }}
@@ -64,15 +63,18 @@ export default function Footer() {
             </Typography>
             <Stack spacing={0.5}>
               {sitemapLinks.map((link) => (
-                <FooterLink
+                <Link
                   key={link.href}
-                  component={Link}
                   href={link.href}
-                  variant="body2"
-                  color="text.secondary"
+                  style={{ textDecoration: 'none' }}
                 >
-                  {link.label}
-                </FooterLink>
+                  <FooterText
+                    variant="body2"
+                    color="text.secondary"
+                  >
+                    {link.label}
+                  </FooterText>
+                </Link>
               ))}
             </Stack>
           </Box>
@@ -99,6 +101,6 @@ export default function Footer() {
           © 2024 Empresa Institucional. Todos os direitos reservados.
         </FooterBottom>
       </Container>
-    </FooterWrapper>
+    </Box>
   );
 }

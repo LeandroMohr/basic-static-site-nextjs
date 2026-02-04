@@ -23,9 +23,11 @@ export default function NotFound() {
       <PageDescription variant="body1" color="text.secondary">
         O conteúdo solicitado não foi localizado. Volte para a página inicial.
       </PageDescription>
-      <Typography component={Link} href="/" color="primary">
-        Ir para a Home
-      </Typography>
+      <Link href="/" style={{ textDecoration: 'none' }}>
+        <Typography color="primary">
+          Ir para a Home
+        </Typography>
+      </Link>
     </PageContainer>
   );
 }

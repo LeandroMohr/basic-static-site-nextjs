@@ -60,9 +60,11 @@ export default function BlogPage() {
                 </Typography>
               </PostCardContent>
               <CardActions>
-                <Button component={Link} href={`/blog/${post.slug}`} size="small">
-                  Ler artigo
-                </Button>
+                <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
+                  <Button size="small">
+                    Ler artigo
+                  </Button>
+                </Link>
               </CardActions>
             </PostCard>
           </Grid>
