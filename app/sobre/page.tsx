@@ -1,4 +1,5 @@
 import { Container, Grid, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import ContentSection from '../../components/ContentSection';
 
 export const metadata = {
@@ -7,12 +8,21 @@ export const metadata = {
     'Saiba mais sobre nossa missão, visão e abordagem para produtos digitais institucionais.'
 };
 
+const PageContainer = styled(Container)(({ theme }) => ({
+  paddingBlock: theme.spacing(6)
+}));
+
+const PageTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(4),
+  fontWeight: 700
+}));
+
 export default function SobrePage() {
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" component="h1" sx={{ mb: 4, fontWeight: 700 }}>
+    <PageContainer maxWidth="lg">
+      <PageTitle variant="h3" component="h1">
         Sobre nós
-      </Typography>
+      </PageTitle>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <ContentSection title="Nossa missão">

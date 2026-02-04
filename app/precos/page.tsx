@@ -1,4 +1,5 @@
 import { Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 export const metadata = {
   title: 'Preços',
@@ -24,31 +25,52 @@ const plans = [
   }
 ];
 
+const PageContainer = styled(Container)(({ theme }) => ({
+  paddingBlock: theme.spacing(6)
+}));
+
+const PageTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(4),
+  fontWeight: 700
+}));
+
+const PlanCard = styled(Card)({
+  height: '100%'
+});
+
+const PlanTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(1)
+}));
+
+const PlanPrice = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(2)
+}));
+
 export default function PrecosPage() {
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" component="h1" sx={{ mb: 4, fontWeight: 700 }}>
+    <PageContainer maxWidth="lg">
+      <PageTitle variant="h3" component="h1">
         Preços
-      </Typography>
+      </PageTitle>
       <Grid container spacing={3}>
         {plans.map((plan) => (
           <Grid item xs={12} md={4} key={plan.title}>
-            <Card sx={{ height: '100%' }}>
+            <PlanCard>
               <CardContent>
-                <Typography variant="h5" sx={{ mb: 1 }}>
+                <PlanTitle variant="h5">
                   {plan.title}
-                </Typography>
-                <Typography variant="h6" color="primary" sx={{ mb: 2 }}>
+                </PlanTitle>
+                <PlanPrice variant="h6" color="primary">
                   {plan.price}
-                </Typography>
+                </PlanPrice>
                 <Typography variant="body2" color="text.secondary">
                   {plan.description}
                 </Typography>
               </CardContent>
-            </Card>
+            </PlanCard>
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </PageContainer>
   );
 }

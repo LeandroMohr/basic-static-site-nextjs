@@ -1,4 +1,5 @@
 import { Card, CardContent, CardActions, Container, Grid, Typography, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { blogPosts } from '../../data/posts';
 
@@ -8,33 +9,56 @@ export const metadata = {
     'Artigos e insights sobre estratégia digital, SEO e métricas para empresas institucionais.'
 };
 
+const PageContainer = styled(Container)(({ theme }) => ({
+  paddingBlock: theme.spacing(6)
+}));
+
+const PageTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(4),
+  fontWeight: 700
+}));
+
+const PostCard = styled(Card)({
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column'
+});
+
+const PostCardContent = styled(CardContent)({
+  flexGrow: 1
+});
+
+const PostTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(1)
+}));
+
 export default function BlogPage() {
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" component="h1" sx={{ mb: 4, fontWeight: 700 }}>
+    <PageContainer maxWidth="lg">
+      <PageTitle variant="h3" component="h1">
         Blog
-      </Typography>
+      </PageTitle>
       <Grid container spacing={3}>
         {blogPosts.map((post) => (
           <Grid item xs={12} md={4} key={post.slug}>
-            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h5" sx={{ mb: 1 }}>
+            <PostCard>
+              <PostCardContent>
+                <PostTitle variant="h5">
                   {post.title}
-                </Typography>
+                </PostTitle>
                 <Typography variant="body2" color="text.secondary">
                   {post.summary}
                 </Typography>
-              </CardContent>
+              </PostCardContent>
               <CardActions>
                 <Button component={Link} href={`/blog/${post.slug}`} size="small">
                   Ler artigo
                 </Button>
               </CardActions>
-            </Card>
+            </PostCard>
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </PageContainer>
   );
 }

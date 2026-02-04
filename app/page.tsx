@@ -1,4 +1,6 @@
-import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 import ContentSection from '../components/ContentSection';
 
 export const metadata = {
@@ -7,18 +9,68 @@ export const metadata = {
     'Conheça nosso produto institucional com foco em performance digital e métricas.'
 };
 
+const PageContainer = styled(Container)(({ theme }) => ({
+  paddingBlock: theme.spacing(6)
+}));
+
+const HeroTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  fontWeight: 700
+}));
+
+const HeroDescription = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(3)
+}));
+
+const HeroImagePlaceholder = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.grey[200],
+  height: 240,
+  borderRadius: theme.spacing(4),
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  [theme.breakpoints.up('md')]: {
+    height: 320
+  }
+}));
+
+const SectionsWrapper = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(6)
+}));
+
+const QuickNavTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(3),
+  fontWeight: 600
+}));
+
+const QuickNavGrid = styled(Grid)(({ theme }) => ({
+  marginBottom: theme.spacing(5)
+}));
+
+const QuickNavCard = styled(Card)(({ theme }) => ({
+  height: '100%',
+  textDecoration: 'none',
+  display: 'block',
+  border: `1px solid ${theme.palette.grey[200]}`
+}));
+
+const QuickNavCardTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(1),
+  color: theme.palette.text.primary
+}));
+
 export default function HomePage() {
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
+    <PageContainer maxWidth="lg">
       <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} md={6}>
-          <Typography variant="h3" component="h1" sx={{ mb: 2, fontWeight: 700 }}>
+          <HeroTitle variant="h3" component="h1">
             Solução digital para presença institucional
-          </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          </HeroTitle>
+          <HeroDescription variant="body1" color="text.secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae
             vestibulum vestibulum.
-          </Typography>
+          </HeroDescription>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
             <Button variant="contained" size="large">
               Fale com a equipe
@@ -29,24 +81,58 @@ export default function HomePage() {
           </Stack>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              bgcolor: 'grey.200',
-              height: { xs: 240, md: 320 },
-              borderRadius: 4,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
+          <HeroImagePlaceholder>
             <Typography variant="h6" color="text.secondary">
               Espaço para imagem do produto
             </Typography>
-          </Box>
+          </HeroImagePlaceholder>
         </Grid>
       </Grid>
 
-      <Box sx={{ mt: 6 }}>
+      <SectionsWrapper>
+        <QuickNavTitle variant="h4">
+          Navegação rápida
+        </QuickNavTitle>
+        <QuickNavGrid container spacing={3}>
+          {[
+            {
+              title: 'Serviços',
+              description: 'Visão geral dos pacotes disponíveis para o site.',
+              href: '/servicos'
+            },
+            {
+              title: 'Sobre',
+              description: 'Conheça a missão, visão e diferenciais da empresa.',
+              href: '/sobre'
+            },
+            {
+              title: 'Preços',
+              description: 'Compare planos e escolha o melhor formato para sua equipe.',
+              href: '/precos'
+            },
+            {
+              title: 'Blog',
+              description: 'Conteúdos editoriais para apoiar a estratégia digital.',
+              href: '/blog'
+            }
+          ].map((item) => (
+            <Grid item xs={12} md={3} key={item.title}>
+              <QuickNavCard
+                component={Link}
+                href={item.href}
+              >
+                <CardContent>
+                  <QuickNavCardTitle variant="h6">
+                    {item.title}
+                  </QuickNavCardTitle>
+                  <Typography variant="body2" color="text.secondary">
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </QuickNavCard>
+            </Grid>
+          ))}
+        </QuickNavGrid>
         <ContentSection title="Por que escolher nossa solução?">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed arcu at quam posuere
           cursus. Phasellus feugiat, sapien a ullamcorper consequat, justo mi tincidunt massa, at
@@ -60,7 +146,7 @@ export default function HomePage() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas congue, sem sit amet
           pulvinar bibendum, nibh libero luctus nisi, a fermentum nisi eros sed arcu.
         </ContentSection>
-      </Box>
-    </Container>
+      </SectionsWrapper>
+    </PageContainer>
   );
 }
