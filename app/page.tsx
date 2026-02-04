@@ -137,16 +137,18 @@ export default function HomePage() {
           ].map((item) => (
             <Grid item xs={12} md={3} key={item.title}>
               <QuickNavCard>
-                <QuickNavCardLink LinkComponent={Link} href={item.href}>
-                  <CardContent>
-                    <QuickNavCardTitle variant="h6">
-                      {item.title}
-                    </QuickNavCardTitle>
-                    <Typography variant="body2" color="text.secondary">
-                      {item.description}
-                    </Typography>
-                  </CardContent>
-                </QuickNavCardLink>
+                <Link href={item.href} style={{ textDecoration: 'none' }}>
+                  <QuickNavCardLink component="div">
+                    <CardContent>
+                      <QuickNavCardTitle variant="h6">
+                        {item.title}
+                      </QuickNavCardTitle>
+                      <Typography variant="body2" color="text.secondary">
+                        {item.description}
+                      </Typography>
+                    </CardContent>
+                  </QuickNavCardLink>
+                </Link>
               </QuickNavCard>
             </Grid>
           ))}
