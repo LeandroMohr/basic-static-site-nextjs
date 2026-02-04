@@ -1,4 +1,14 @@
-import { Box, Button, Card, CardContent, Container, Grid, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  TypographyProps
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import ContentSection from '../components/ContentSection';
@@ -13,12 +23,12 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const HeroTitle = styled(Typography)(({ theme }) => ({
+const HeroTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2),
   fontWeight: 700
 }));
 
-const HeroDescription = styled(Typography)(({ theme }) => ({
+const HeroDescription = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(3)
 }));
 
@@ -38,7 +48,7 @@ const SectionsWrapper = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(6)
 }));
 
-const QuickNavTitle = styled(Typography)(({ theme }) => ({
+const QuickNavTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(3),
   fontWeight: 600
 }));
@@ -54,7 +64,7 @@ const QuickNavCard = styled(Card)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[200]}`
 }));
 
-const QuickNavCardTitle = styled(Typography)(({ theme }) => ({
+const QuickNavCardTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(1),
   color: theme.palette.text.primary
 }));

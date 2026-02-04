@@ -1,4 +1,13 @@
-import { Card, CardContent, CardActions, Container, Grid, Typography, Button } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Container,
+  Grid,
+  Typography,
+  TypographyProps,
+  Button
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 import { blogPosts } from '../../data/posts';
@@ -13,7 +22,7 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(4),
   fontWeight: 700
 }));
@@ -28,7 +37,7 @@ const PostCardContent = styled(CardContent)({
   flexGrow: 1
 });
 
-const PostTitle = styled(Typography)(({ theme }) => ({
+const PostTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(1)
 }));
 

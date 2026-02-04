@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { blogPosts, getPostBySlug } from '../../../data/posts';
 import { notFound } from 'next/navigation';
@@ -32,7 +32,7 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(3),
   fontWeight: 700
 }));

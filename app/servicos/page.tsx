@@ -1,4 +1,12 @@
-import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Card,
+  CardContent,
+  Container,
+  Grid,
+  Typography,
+  TypographyProps
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
 
@@ -32,12 +40,12 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(2),
   fontWeight: 700
 }));
 
-const PageSubtitle = styled(Typography)(({ theme }) => ({
+const PageSubtitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(4)
 }));
 
@@ -48,7 +56,7 @@ const ServiceCard = styled(Card)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[200]}`
 }));
 
-const ServiceCardTitle = styled(Typography)(({ theme }) => ({
+const ServiceCardTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(1),
   color: theme.palette.text.primary
 }));
@@ -57,7 +65,7 @@ const OutroWrapper = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(5)
 }));
 
-const OutroTitle = styled(Typography)(({ theme }) => ({
+const OutroTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(1)
 }));
 

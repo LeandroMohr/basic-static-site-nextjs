@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ContentSection from '../../components/ContentSection';
 
@@ -12,7 +12,7 @@ const PageContainer = styled(Container)(({ theme }) => ({
   paddingBlock: theme.spacing(6)
 }));
 
-const PageTitle = styled(Typography)(({ theme }) => ({
+const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
   marginBottom: theme.spacing(4),
   fontWeight: 700
 }));
