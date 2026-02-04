@@ -1,6 +1,4 @@
 import { Container, Stack, Typography } from '@mui/material';
-import type { TypographyProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import ContentSection from '../../../components/ContentSection';
 
 export const metadata = {
@@ -8,21 +6,15 @@ export const metadata = {
   description: 'Diagnóstico e planejamento estratégico para o site institucional.'
 };
 
-const PageContainer = styled(Container)(({ theme }) => ({
-  paddingBlock: theme.spacing(6)
-}));
 
-const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 700
-}));
 
 export default function ConsultoriaPage() {
   return (
-    <PageContainer maxWidth="lg">
+    <Container maxWidth="lg" sx={{ paddingBlock: 6 }}>
       <Stack spacing={3}>
-        <PageTitle variant="h3" component="h1">
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
           Consultoria
-        </PageTitle>
+        </Typography>
         <ContentSection title="Mapeamento de objetivos">
           Identificamos metas de negócio, públicos prioritários e mensagens-chave para orientar a
           arquitetura do conteúdo institucional.
@@ -36,6 +28,6 @@ export default function ConsultoriaPage() {
           a equipe interna.
         </ContentSection>
       </Stack>
-    </PageContainer>
+    </Container>
   );
 }

@@ -1,6 +1,4 @@
 import { Container, Stack, Typography } from '@mui/material';
-import type { TypographyProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import ContentSection from '../../../components/ContentSection';
 
 export const metadata = {
@@ -8,21 +6,15 @@ export const metadata = {
   description: 'Execução do site institucional com foco em desempenho e consistência.'
 };
 
-const PageContainer = styled(Container)(({ theme }) => ({
-  paddingBlock: theme.spacing(6)
-}));
 
-const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  fontWeight: 700
-}));
 
 export default function ImplementacaoPage() {
   return (
-    <PageContainer maxWidth="lg">
+    <Container maxWidth="lg" sx={{ paddingBlock: 6 }}>
       <Stack spacing={3}>
-        <PageTitle variant="h3" component="h1">
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
           Implementação
-        </PageTitle>
+        </Typography>
         <ContentSection title="Design system aplicado">
           Montamos a interface com componentes reutilizáveis para manter o site alinhado à marca.
         </ContentSection>
@@ -34,6 +26,6 @@ export default function ImplementacaoPage() {
           Validamos cada etapa com a equipe interna, garantindo consistência e clareza no conteúdo.
         </ContentSection>
       </Stack>
-    </PageContainer>
+    </Container>
   );
 }
