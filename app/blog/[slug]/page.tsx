@@ -1,0 +1,47 @@
+import { Container, Typography } from '@mui/material';
+import { blogPosts, getPostBySlug } from '../../../data/posts';
+import { notFound } from 'next/navigation';
+
+type BlogPostPageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export const generateMetadata = ({ params }: BlogPostPageProps) => {
+  const post = getPostBySlug(params.slug);
+
+  if (!post) {
+    return {
+      title: 'Post não encontrado',
+      description: 'O conteúdo solicitado não foi encontrado.'
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.summary
+  };
+};
+
+export const generateStaticParams = () =>
+  blogPosts.map((post) => ({ slug: post.slug }));
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <Container maxWidth="md" sx={{ py: 6 }}>
+      <Typography variant="h3" component="h1" sx={{ mb: 3, fontWeight: 700 }}>
+        {post.title}
+      </Typography>
+      <Typography variant="body1" color="text.secondary">
+        {post.content}
+      </Typography>
+    </Container>
+  );
+}
