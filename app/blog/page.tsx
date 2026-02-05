@@ -56,7 +56,7 @@ export default function BlogPage() {
               </CardContent>
               <CardActions>
                 <Typography variant="button">
-                  <a href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <a href={`/blog/${post.slug}/`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     Ler artigo
                   </a>
                 </Typography>
