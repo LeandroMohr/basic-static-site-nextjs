@@ -18,13 +18,41 @@ export const metadata = {
     'Conheça nosso produto institucional com foco em performance digital e métricas.'
 };
 
+// CSS animations defined as sx prop
+const fadeInUpAnimation = {
+  '@keyframes fadeInUp': {
+    from: {
+      opacity: 0,
+      transform: 'translateY(30px)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+  },
+};
+
+const fadeInAnimation = {
+  '@keyframes fadeIn': {
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  },
+};
+
 
 
 export default function HomePage() {
   return (
     <Container maxWidth="lg" sx={{ paddingBlock: 6 }}>
       <Grid container spacing={4} alignItems="center">
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sx={{
+          ...fadeInUpAnimation,
+          animation: 'fadeInUp 0.8s ease-out',
+        }}>
           <Typography variant="h3" component="h1" sx={{ marginBottom: 2, fontWeight: 700 }}>
             Solução digital para presença institucional
           </Typography>
@@ -41,14 +69,23 @@ export default function HomePage() {
             </Button>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sx={{
+          ...fadeInUpAnimation,
+          animation: 'fadeInUp 0.8s ease-out 0.2s backwards',
+        }}>
           <Box sx={{
             backgroundColor: 'grey.200',
             height: { xs: 240, md: 320 },
             borderRadius: 4,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            background: 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%)',
+            transition: 'all 0.3s ease-in-out',
+            '&:hover': {
+              transform: 'scale(1.02)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)'
+            }
           }}>
             <Typography variant="h6" color="text.secondary">
               Espaço para imagem do produto
@@ -57,7 +94,11 @@ export default function HomePage() {
         </Grid>
       </Grid>
 
-      <Box sx={{ marginTop: 6 }}>
+      <Box sx={{ 
+        marginTop: 6,
+        ...fadeInAnimation,
+        animation: 'fadeIn 1s ease-out 0.4s backwards',
+      }}>
         <Typography variant="h4" sx={{ marginBottom: 3, fontWeight: 600 }}>
           Navegação rápida
         </Typography>
@@ -83,14 +124,34 @@ export default function HomePage() {
               description: 'Conteúdos editoriais para apoiar a estratégia digital.',
               href: '/blog'
             }
-          ].map((item) => (
-            <Grid item xs={12} md={3} key={item.title}>
+          ].map((item, index) => (
+            <Grid item xs={12} md={3} key={item.title} sx={{
+              ...fadeInUpAnimation,
+              animation: `fadeInUp 0.6s ease-out ${0.5 + index * 0.1}s backwards`,
+            }}>
               <Card sx={{
                 height: '100%',
                 textDecoration: 'none',
                 display: 'block',
                 border: '1px solid',
-                borderColor: 'grey.200'
+                borderColor: 'grey.200',
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '4px',
+                  background: 'linear-gradient(90deg, #1b5e20, #1976d2)',
+                  transform: 'scaleX(0)',
+                  transformOrigin: 'left',
+                  transition: 'transform 0.3s ease-in-out'
+                },
+                '&:hover::before': {
+                  transform: 'scaleX(1)'
+                }
               }}>
                 <Link href={item.href} style={{ textDecoration: 'none' }}>
                   <CardActionArea sx={{
@@ -102,7 +163,8 @@ export default function HomePage() {
                     <CardContent>
                       <Typography variant="h6" sx={{
                         marginBottom: 1,
-                        color: 'text.primary'
+                        color: 'text.primary',
+                        fontWeight: 600
                       }}>
                         {item.title}
                       </Typography>
