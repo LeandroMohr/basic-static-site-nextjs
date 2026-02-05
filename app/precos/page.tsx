@@ -5,8 +5,6 @@ import {
   Grid,
   Typography
 } from '@mui/material';
-import type { TypographyProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
 
 export const metadata = {
   title: 'Preços',
@@ -32,52 +30,33 @@ const plans = [
   }
 ];
 
-const PageContainer = styled(Container)(({ theme }) => ({
-  paddingBlock: theme.spacing(6)
-}));
 
-const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.spacing(4),
-  fontWeight: 700
-}));
-
-const PlanCard = styled(Card)({
-  height: '100%'
-});
-
-const PlanTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.spacing(1)
-}));
-
-const PlanPrice = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.spacing(2)
-}));
 
 export default function PrecosPage() {
   return (
-    <PageContainer maxWidth="lg">
-      <PageTitle variant="h3" component="h1">
+    <Container maxWidth="lg" sx={{ paddingBlock: 6 }}>
+      <Typography variant="h3" component="h1" sx={{ marginBottom: 4, fontWeight: 700 }}>
         Preços
-      </PageTitle>
+      </Typography>
       <Grid container spacing={3}>
         {plans.map((plan) => (
           <Grid item xs={12} md={4} key={plan.title}>
-            <PlanCard>
+            <Card sx={{ height: '100%' }}>
               <CardContent>
-                <PlanTitle variant="h5">
+                <Typography variant="h5" sx={{ marginBottom: 1 }}>
                   {plan.title}
-                </PlanTitle>
-                <PlanPrice variant="h6" color="primary">
+                </Typography>
+                <Typography variant="h6" color="primary" sx={{ marginBottom: 2 }}>
                   {plan.price}
-                </PlanPrice>
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {plan.description}
                 </Typography>
               </CardContent>
-            </PlanCard>
+            </Card>
           </Grid>
         ))}
       </Grid>
-    </PageContainer>
+    </Container>
   );
 }

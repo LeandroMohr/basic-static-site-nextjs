@@ -6,8 +6,6 @@ import {
   Grid,
   Typography
 } from '@mui/material';
-import type { TypographyProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
 
 const blogPosts = [
   {
@@ -36,47 +34,26 @@ export const metadata = {
     'Artigos e insights sobre estratégia digital, SEO e métricas para empresas institucionais.'
 };
 
-const PageContainer = styled(Container)(({ theme }) => ({
-  paddingBlock: theme.spacing(6)
-}));
 
-const PageTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.spacing(4),
-  fontWeight: 700
-}));
-
-const PostCard = styled(Card)({
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column'
-});
-
-const PostCardContent = styled(CardContent)({
-  flexGrow: 1
-});
-
-const PostTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginBottom: theme.spacing(1)
-}));
 
 export default function BlogPage() {
   return (
-    <PageContainer maxWidth="lg">
-      <PageTitle variant="h3" component="h1">
+    <Container maxWidth="lg" sx={{ paddingBlock: 6 }}>
+      <Typography variant="h3" component="h1" sx={{ marginBottom: 4, fontWeight: 700 }}>
         Blog
-      </PageTitle>
+      </Typography>
       <Grid container spacing={3}>
         {blogPosts.map((post) => (
           <Grid item xs={12} md={4} key={post.slug}>
-            <PostCard>
-              <PostCardContent>
-                <PostTitle variant="h5">
+            <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" sx={{ marginBottom: 1 }}>
                   {post.title}
-                </PostTitle>
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {post.summary}
                 </Typography>
-              </PostCardContent>
+              </CardContent>
               <CardActions>
                 <Typography variant="button">
                   <a href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -84,10 +61,10 @@ export default function BlogPage() {
                   </a>
                 </Typography>
               </CardActions>
-            </PostCard>
+            </Card>
           </Grid>
         ))}
       </Grid>
-    </PageContainer>
+    </Container>
   );
 }

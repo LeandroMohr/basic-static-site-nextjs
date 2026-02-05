@@ -1,12 +1,10 @@
 import { Box, Container, IconButton, Stack, Typography } from '@mui/material';
-import type { TypographyProps } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import Link from 'next/link';
-import { styled } from '@mui/material/styles';
 
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com', icon: <LinkedInIcon /> },
@@ -27,20 +25,16 @@ const sitemapLinks = [
   { label: 'Blog', href: '/blog' }
 ];
 
-const FooterText = styled(Typography)<TypographyProps>({});
 
-const FooterBottom = styled(Typography)<TypographyProps>(({ theme }) => ({
-  marginTop: theme.spacing(3)
-}));
 
 export default function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: (theme) => theme.palette.grey[100],
-        marginTop: (theme) => theme.spacing(8),
-        paddingBlock: (theme) => theme.spacing(4)
+        backgroundColor: 'grey.100',
+        marginTop: 8,
+        paddingBlock: 4
       }}
     >
       <Container maxWidth="lg">
@@ -69,12 +63,12 @@ export default function Footer() {
                   href={link.href}
                   style={{ textDecoration: 'none' }}
                 >
-                  <FooterText
+                  <Typography
                     variant="body2"
                     color="text.secondary"
                   >
                     {link.label}
-                  </FooterText>
+                  </Typography>
                 </Link>
               ))}
             </Stack>
@@ -98,9 +92,9 @@ export default function Footer() {
             </Stack>
           </Box>
         </Stack>
-        <FooterBottom variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" sx={{ marginTop: 3 }}>
           © 2024 Empresa Institucional. Todos os direitos reservados.
-        </FooterBottom>
+        </Typography>
       </Container>
     </Box>
   );

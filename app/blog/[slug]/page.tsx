@@ -65,8 +65,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <Container maxWidth="md" sx={{ paddingBlock: (theme) => theme.spacing(6) }}>
-      <Typography variant="h3" component="h1" sx={{ marginBottom: (theme) => theme.spacing(3), fontWeight: 700 }}>
+    <Container maxWidth="md" sx={{ paddingBlock: 6 }}>
+      <Typography variant="h3" component="h1" sx={{ marginBottom: 3, fontWeight: 700 }}>
         {post.title}
       </Typography>
       <Typography variant="body1" color="text.secondary">
