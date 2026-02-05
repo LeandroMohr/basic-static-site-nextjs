@@ -11,36 +11,12 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import ContentSection from '../components/ContentSection';
+import { fadeInUpAnimation, fadeInAnimation } from '../components/animations';
 
 export const metadata = {
   title: 'Home',
   description:
     'Conheça nosso produto institucional com foco em performance digital e métricas.'
-};
-
-// CSS animations defined as sx prop
-const fadeInUpAnimation = {
-  '@keyframes fadeInUp': {
-    from: {
-      opacity: 0,
-      transform: 'translateY(30px)',
-    },
-    to: {
-      opacity: 1,
-      transform: 'translateY(0)',
-    },
-  },
-};
-
-const fadeInAnimation = {
-  '@keyframes fadeIn': {
-    from: {
-      opacity: 0,
-    },
-    to: {
-      opacity: 1,
-    },
-  },
 };
 
 

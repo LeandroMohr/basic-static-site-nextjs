@@ -7,6 +7,7 @@ import {
   Typography
 } from '@mui/material';
 import Link from 'next/link';
+import { fadeInUpAnimation } from '../../components/animations';
 
 const serviceCards = [
   {
@@ -32,19 +33,6 @@ const serviceCards = [
 export const metadata = {
   title: 'Serviços',
   description: 'Conheça os serviços disponíveis para criar e evoluir seu site institucional.'
-};
-
-const fadeInUpAnimation = {
-  '@keyframes fadeInUp': {
-    from: {
-      opacity: 0,
-      transform: 'translateY(30px)',
-    },
-    to: {
-      opacity: 1,
-      transform: 'translateY(0)',
-    },
-  },
 };
 
 

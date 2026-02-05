@@ -3,6 +3,10 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://example.com';
   
+  // Use a stable date that represents when the site structure was last updated
+  // This should be manually updated when content changes significantly
+  const lastModified = new Date('2024-01-01');
+  
   const routes = [
     '',
     '/sobre',
@@ -16,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = routes.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1 : 0.8,
   }));
@@ -30,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
+    lastModified,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
